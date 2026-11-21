@@ -1,0 +1,280 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#141414">
+  <title>FreeAI</title>
+  <style>
+    :root {
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: #ededed;
+      background: #141414;
+      font-synthesis: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+
+
+    .page-title {
+      position: absolute;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+      color: #ededed;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -.5px;
+    }
+
+    .language-switch {
+      position: absolute;
+      top: 22px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .language-switch select {
+      width: 90px;
+      height: 32px;
+      padding: 4px 10px;
+      border: 1px solid #f0f0f0;
+      border-radius: 4px;
+      background: #e0e0e0;
+      color: #1b1b1b;
+      color-scheme: light;
+      font: inherit;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .language-switch select:hover { background: #fff; }
+    .language-switch select:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+
+    main {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 104px 20px;
+    }
+
+    .asset { width: 100%; max-width: 380px; }
+
+
+    .card {
+      padding: 28px;
+      border: 1px solid #383838;
+      border-radius: 4px;
+      background: #202020;
+    }
+
+    .card-title {
+      text-align: center;
+      margin: 0;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+
+    .benefits { margin: 30px 0 0; }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .benefit dt { color: #a3a3a3; }
+    .benefit dd { margin: 0; color: #dedede; font-variant-numeric: tabular-nums; }
+
+    .site-status { align-items: flex-start; }
+    .site-status dt { flex-shrink: 0; }
+    .site-status dd { min-width: 0; text-align: right; overflow-wrap: anywhere; }
+
+    .total {
+      margin: 19px 0 25px;
+      padding-top: 22px;
+      border-top: 1px solid #383838;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .total-label { color: #a3a3a3; font-size: 12px; }
+    .total-value { font-size: 30px; font-weight: 500; letter-spacing: -1px; }
+
+    .visit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 43px;
+      border: 1px solid #e0e0e0;
+      border-radius: 3px;
+      background: #e0e0e0;
+      color: #1b1b1b;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color .15s, border-color .15s;
+    }
+
+    .visit:hover { background: #fff; border-color: #fff; }
+    .visit:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+    .visit svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    @media (max-width: 420px) {
+      main { padding: 104px 20px 40px; }
+      .page-title { top: 18px; font-size: 32px; }
+      .language-switch { top: 18px; right: 20px; }
+      .card { padding: 24px; }
+      .benefit { font-size: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .visit { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="page-title">FreeAI</h1>
+  <div class="language-switch">
+    <select id="page-language" name="language" aria-label="页面语言" data-i18n-aria-label="pageLanguage">
+      <option value="zh" selected>中文</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+
+  <main>
+    <div class="asset">
+
+      <article class="card" aria-labelledby="croli-title">
+        <h2 class="card-title" id="croli-title">Croli</h2>
+
+        <dl class="benefits" aria-label="免费福利" data-i18n-aria-label="benefits">
+          <div class="benefit"><dt data-i18n="freeModel">免费模型</dt><dd>Claude Opus 5</dd></div>
+          <div class="benefit"><dt data-i18n="loginBonus">登录即送</dt><dd data-amount="40">40＄</dd></div>
+          <div class="benefit"><dt data-i18n="dailyFree">每日免费</dt><dd data-amount="20">20＄</dd></div>
+          <div class="benefit"><dt data-i18n="inviteBonus">使用邀请码可得</dt><dd data-amount="30">30＄</dd></div>
+          <div class="benefit site-status"><dt data-i18n="siteStatus">站点状态</dt><dd>2026.11.20 19:38<br><span data-i18n="modelStatus">Opus5正常工作</span></dd></div>
+        </dl>
+
+        <div class="total"><span class="total-label" data-i18n="totalFree">共计免费</span><span class="total-value" data-amount="90">90＄</span></div>
+
+        <a class="visit" href="https://www.croli.net/invite/?code=XAWVWTCSKB" target="_blank" rel="noopener noreferrer">
+          <span data-i18n="visit">前往 Croli</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg>
+        </a>
+      </article>
+    </div>
+  </main>
+  <script>
+    (() => {
+      const storageKey = 'freeai-language';
+      const translations = {
+        zh: {
+          title: 'FreeAI',
+          pageLanguage: '页面语言',
+          benefits: '免费福利',
+          freeModel: '免费模型',
+          loginBonus: '登录即送',
+          dailyFree: '每日免费',
+          inviteBonus: '使用邀请码可得',
+          siteStatus: '站点状态',
+          modelStatus: 'Opus5正常工作',
+          totalFree: '共计免费',
+          visit: '前往 Croli',
+        },
+        en: {
+          title: 'FreeAI',
+          pageLanguage: 'Page language',
+          benefits: 'Free benefits',
+          freeModel: 'Free model',
+          loginBonus: 'Sign-in bonus',
+          dailyFree: 'Daily free credit',
+          inviteBonus: 'Invite code bonus',
+          siteStatus: 'Site status',
+          modelStatus: 'Opus5 working normally',
+          totalFree: 'Total free credit',
+          visit: 'Visit Croli',
+        },
+      };
+      const selector = document.getElementById('page-language');
+
+      function detectLanguage() {
+        const languages = navigator.languages && navigator.languages.length
+          ? navigator.languages
+          : [navigator.language || 'en'];
+        for (const locale of languages) {
+          const language = locale.toLowerCase().split(/[-_]/)[0];
+          if (language === 'zh' || language === 'en') return language;
+        }
+        return 'en';
+      }
+
+      function applyLanguage(language) {
+        const messages = translations[language];
+        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+        document.title = messages.title;
+        selector.value = language;
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          element.textContent = messages[element.dataset.i18n];
+        });
+        document.querySelectorAll('[data-i18n-aria-label]').forEach(element => {
+          element.setAttribute('aria-label', messages[element.dataset.i18nAriaLabel]);
+        });
+        document.querySelectorAll('[data-amount]').forEach(element => {
+          element.textContent = language === 'zh'
+            ? element.dataset.amount + '＄'
+            : '$' + element.dataset.amount;
+        });
+      }
+
+      let language = detectLanguage();
+      try {
+        const savedLanguage = localStorage.getItem(storageKey);
+        if (savedLanguage === 'zh' || savedLanguage === 'en') language = savedLanguage;
+      } catch {
+        // Browser language detection still works when storage is unavailable.
+      }
+      applyLanguage(language);
+
+      selector.addEventListener('change', () => {
+        const selectedLanguage = selector.value;
+        if (selectedLanguage !== 'zh' && selectedLanguage !== 'en') return;
+        applyLanguage(selectedLanguage);
+        try {
+          localStorage.setItem(storageKey, selectedLanguage);
+        } catch {
+          // Switching remains available without persisting the preference.
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
